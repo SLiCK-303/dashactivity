@@ -42,14 +42,14 @@ class Dashactivity extends Module
         $this->name = 'dashactivity';
         $this->tab = 'dashboard';
         $this->version = '6.0.0';
-        $this->author = 'thirty bees';
+        $this->author = 'SLiCK-303';
         $this->push_filename = _PS_CACHE_DIR_.'push/activity';
         $this->allow_push = true;
         $this->push_time_limit = 180;
 
         parent::__construct();
         $this->displayName = $this->l('Dashboard Activity');
-        $this->description = '';
+        $this->description = $this->l('Adds a block with your store\'s activity.');
     }
 
     /**

@@ -1,9 +1,6 @@
 <?php
 /**
- * 2007-2016 PrestaShop
- *
- * thirty bees is an extension to the PrestaShop e-commerce software developed by PrestaShop SA
- * Copyright (C) 2017 thirty bees
+ * 2018 thirty bees
  *
  * NOTICE OF LICENSE
  *
@@ -15,6 +12,12 @@
  * obtain it through the world-wide-web, please send an email
  * to license@thirtybees.com so we can send you a copy immediately.
  *
+ * @package   dashactivity
+ * @author    slick-303 <slick_303@hotmail.com>
+ * @copyright 2017-2018 SLiCK-303
+ * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ *
+ * -- Original Header --
  * @author    thirty bees <modules@thirtybees.com>
  * @author    PrestaShop SA <contact@prestashop.com>
  * @copyright 2017 thirty bees

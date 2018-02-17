@@ -104,9 +104,16 @@
           <span id="new_messages"></span>
         </span>
       </li>
-      {if Module::isInstalled('productcomments')}
+      {if Module::isEnabled('productcomments')}
         <li>
           <span class="data_label"><a href="{$link->getAdminLink('AdminModules')|escape:'html':'UTF-8'}&amp;configure=productcomments&amp;tab_module=front_office_features&amp;module_name=productcomments">{l s='Product Reviews' mod='dashactivity'}</a></span>
+          <span class="data_value size_l">
+            <span id="product_reviews"></span>
+          </span>
+        </li>
+      {elseif Module::isEnabled('revws')}
+        <li>
+          <span class="data_label"><a href="{$link->getAdminLink('AdminRevwsBackend')|escape:'html':'UTF-8'}">{l s='Product Reviews' mod='dashactivity'}</a></span>
           <span class="data_value size_l">
             <span id="product_reviews"></span>
           </span>

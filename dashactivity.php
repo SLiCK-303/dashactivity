@@ -44,7 +44,7 @@ class Dashactivity extends Module
     {
         $this->name = 'dashactivity';
         $this->tab = 'dashboard';
-        $this->version = '6.0.0';
+        $this->version = '6.0.1';
         $this->author = 'SLiCK-303';
         $this->push_filename = _PS_CACHE_DIR_.'push/activity';
         $this->allow_push = true;
@@ -381,7 +381,7 @@ class Dashactivity extends Module
         }
 
         $productReviews = 0;
-        if (Module::isInstalled('productcomments')) {
+        if (Module::isEnabled('productcomments')) {
             try {
                 $productReviews += Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue(
                     (new DbQuery())
@@ -390,6 +390,17 @@ class Dashactivity extends Module
                         ->leftJoin('product', 'p', 'pc.`id_product` = p.`id_product` '.Shop::addSqlAssociation('product', 'p'))
                         ->where('pc.`deleted` = 0')
                         ->where('pc.`date_add` BETWEEN "'.pSQL($params['date_from']).'" AND "'.pSQL($params['date_to']).'" '.Shop::addSqlRestriction(Shop::SHARE_ORDER))
+                );
+            } catch (PrestaShopException $e) {
+            }
+        } elseif (Module::isEnabled('revws')) {
+            try {
+                $productReviews += Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue(
+                    (new DbQuery())
+                        ->select('COUNT(*)')
+                        ->from('revws_review')
+                        ->where('`deleted` = 0')
+                        ->where('`validated` = 0')
                 );
             } catch (PrestaShopException $e) {
             }

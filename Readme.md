@@ -1,7 +1,7 @@
 # Dash activity
 
 ## About
-The dash activity module allows you to see recent users who have accessed your shop and other statistics.  This is a modified version of the stock thirty bees module, but not using Google analytics, and updated to use either productcomments, or Datakick's revws module.
+The dash activity module allows you to see recent users who have accessed your shop and other statistics.  This is a modified version of the stock thirty bees module, but not using Google analytics, and updated to use either [productcomments](https://github.com/thirtybees/productcomments), or [Datakick's revws](https://github.com/getdatakick/revws) module.
 
 ## Contributing
 

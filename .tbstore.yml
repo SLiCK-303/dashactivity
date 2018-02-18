@@ -1,0 +1,13 @@
+module_name: Dash Activity v6
+compatible_versions: 1.0.0+
+author: SLiCK-303
+category: statistics
+tags:
+  - dash activity
+  - dash
+  - activity
+description_short: The dash activity module allows you to see recent users who have accessed your shop and other statistics.
+description: description.md
+images:
+  - image-1.png
+license: AFL

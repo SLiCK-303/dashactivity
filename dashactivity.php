@@ -1,18 +1,18 @@
 <?php
 /**
- * Copyright (C) 2018 SLiCK-303
+ * Copyright (C) 2019 SLiCK-303
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Academic Free License (AFL 3.0)
  * that is bundled with this package in the file LICENSE.md.
  * It is also available through the world-wide-web at this URL:
- * http://opensource.org/licenses/afl-3.0.php
+ * https://opensource.org/licenses/afl-3.0.php
  *
  * @package    dashactivity
  * @author     SLiCK-303 <slick_303@hotmail.com>
- * @copyright  2018 SLiCK-303
- * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * @copyright  2019 SLiCK-303
+ * @license    Academic Free License (AFL 3.0)
 **/
 
 if (!defined('_TB_VERSION_')) {
@@ -33,7 +33,7 @@ class Dashactivity extends Module
     {
         $this->name = 'dashactivity';
         $this->tab = 'dashboard';
-        $this->version = '6.0.1';
+        $this->version = '6.0.2';
         $this->author = 'SLiCK-303';
         $this->push_filename = _PS_CACHE_DIR_.'push/activity';
         $this->allow_push = true;
@@ -42,6 +42,8 @@ class Dashactivity extends Module
         parent::__construct();
         $this->displayName = $this->l('Dashboard Activity');
         $this->description = $this->l('Adds a block with your store\'s activity.');
+        $this->tb_versions_compliancy = '>= 1.0.0';
+        $this->tb_min_version = '1.0.0';
     }
 
     /**

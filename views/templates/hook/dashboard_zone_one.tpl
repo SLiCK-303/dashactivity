@@ -16,7 +16,7 @@
  * @author    SLiCK-303 <slick_303@hotmail.com>
  * @author    thirty bees <modules@thirtybees.com>
  * @author    PrestaShop SA <contact@prestashop.com>
- * @copyright 2021 SLiCK-303
+ * @copyright 2018-2021 SLiCK-303
  * @copyright 2017-2019 thirty bees
  * @copyright 2007-2016 PrestaShop SA
  * @license   Academic Free License (AFL 3.0)

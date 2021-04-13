@@ -2,7 +2,7 @@
 <module>
 	<name><![CDATA[dashactivity]]></name>
 	<displayName><![CDATA[Dashboard Activity]]></displayName>
-	<version><![CDATA[6.0.2]]></version>
+	<version><![CDATA[6.0.3]]></version>
 	<description><![CDATA[Adds a block with your store's activity.]]></description>
 	<author><![CDATA[SLiCK-303]]></author>
 	<author_uri/>

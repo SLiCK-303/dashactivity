@@ -1,6 +1,10 @@
 <?php
 /**
- * Copyright (C) 2019 SLiCK-303
+ * Copyright (C) 2018-2021 SLiCK-303
+ * Copyright (C) 2017-2019 thirty bees
+ * Copyright (C) 2007-2016 PrestaShop SA
+ *
+ * thirty bees is an extension to the PrestaShop software by PrestaShop SA.
  *
  * NOTICE OF LICENSE
  *
@@ -9,10 +13,15 @@
  * It is also available through the world-wide-web at this URL:
  * https://opensource.org/licenses/afl-3.0.php
  *
- * @package    dashactivity
- * @author     SLiCK-303 <slick_303@hotmail.com>
- * @copyright  2019 SLiCK-303
- * @license    Academic Free License (AFL 3.0)
+ * @package   dashactivity
+ * @author    SLiCK-303 <slick_303@hotmail.com>
+ * @author    thirty bees <modules@thirtybees.com>
+ * @author    PrestaShop SA <contact@prestashop.com>
+ * @copyright 2018-2021 SLiCK-303
+ * @copyright 2017-2019 thirty bees
+ * @copyright 2007-2016 PrestaShop SA
+ * @license   Academic Free License (AFL 3.0)
+ * PrestaShop is an internationally registered trademark of PrestaShop SA.
 **/
 
 if (!defined('_TB_VERSION_')) {
@@ -24,7 +33,12 @@ if (!defined('_TB_VERSION_')) {
  */
 class Dashactivity extends Module
 {
+    // @codingStandardsIgnoreStart
+    /** @var string[] $colors */
     protected static $colors = ['#1F77B4', '#FF7F0E', '#2CA02C'];
+    /** @var string $push_filename */
+    public $push_filename = '';
+    // @codingStandardsIgnoreEnd
 
     /**
      * Dashactivity constructor.
@@ -33,15 +47,16 @@ class Dashactivity extends Module
     {
         $this->name = 'dashactivity';
         $this->tab = 'dashboard';
-        $this->version = '6.0.2';
+        $this->version = '6.0.3';
         $this->author = 'SLiCK-303';
+        $this->need_instance = 0;
         $this->push_filename = _PS_CACHE_DIR_.'push/activity';
         $this->allow_push = true;
         $this->push_time_limit = 180;
 
         parent::__construct();
         $this->displayName = $this->l('Dashboard Activity');
-        $this->description = $this->l('Adds a block with your store\'s activity.');
+        $this->description = 'Show recent users and other statistics.';
         $this->tb_versions_compliancy = '>= 1.0.0';
         $this->tb_min_version = '1.0.0';
     }
@@ -633,6 +648,14 @@ class Dashactivity extends Module
     }
 
     /**
+     * Hook after adding an Order object
+     */
+    public function hookActionObjectOrderAddAfter()
+    {
+        Tools::changeFileMTime($this->push_filename);
+    }
+
+    /**
      * Hook after adding a CustomerThread object
      */
     public function hookActionObjectCustomerThreadAddAfter()
@@ -654,13 +677,5 @@ class Dashactivity extends Module
     public function hookActionObjectOrderReturnAddAfter()
     {
         $this->hookActionObjectOrderAddAfter();
-    }
-
-    /**
-     * Hook after adding an Order object
-     */
-    public function hookActionObjectOrderAddAfter()
-    {
-        Tools::changeFileMTime($this->push_filename);
     }
 }
